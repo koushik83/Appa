@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Venkatraman Rajagopalan, IAS — Senior Environment & Climate Advisory</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1f2e;
+    --ink-light: #3d4355;
+    --ink-muted: #6b7085;
+    --surface: #faf9f7;
+    --surface-warm: #f3f1ed;
+    --accent: #8b7355;
+    --accent-light: #a8956f;
+    --rule: #d4d0c8;
+    --rule-light: #e8e5df;
+    --white: #ffffff;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: 'Source Sans 3', Georgia, serif;
+    color: var(--ink);
+    background: var(--surface);
+    line-height: 1.7;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(250, 249, 247, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule-light);
+    transition: box-shadow 0.3s;
+  }
+  nav.scrolled { box-shadow: 0 1px 8px rgba(0,0,0,0.06); }
+  .nav-inner {
+    max-width: 1100px; margin: 0 auto;
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .nav-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem; font-weight: 600;
+    color: var(--ink); letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.82rem; font-weight: 500;
+    color: var(--ink-muted); text-decoration: none;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+  .nav-toggle span { display: block; width: 20px; height: 1.5px; background: var(--ink); margin: 5px 0; transition: 0.2s; }
+
+  /* ── CONTAINER ── */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 160px 0 100px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .hero-eyebrow {
+    font-size: 0.78rem; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.4rem; font-weight: 600;
+    line-height: 1.15; color: var(--ink);
+    margin-bottom: 1.8rem;
+    max-width: 700px;
+  }
+  .hero-intro {
+    font-size: 1.15rem; line-height: 1.8;
+    color: var(--ink-light); max-width: 640px;
+    font-weight: 300;
+  }
+  .hero-meta {
+    margin-top: 3rem;
+    display: flex; gap: 3rem; flex-wrap: wrap;
+  }
+  .hero-meta-item {
+    font-size: 0.78rem; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--ink-muted);
+    font-weight: 500;
+  }
+  .hero-meta-item span {
+    display: block; margin-top: 0.35rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem; font-weight: 600;
+    text-transform: none; letter-spacing: 0;
+    color: var(--ink);
+  }
+
+  /* ── SECTION ── */
+  section { padding: 80px 0; }
+  section + section { border-top: 1px solid var(--rule-light); }
+
+  .section-label {
+    font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 2rem;
+  }
+
+  .section-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.1rem; font-weight: 600;
+    line-height: 1.25; color: var(--ink);
+    margin-bottom: 1.2rem;
+    max-width: 600px;
+  }
+
+  .section-text {
+    font-size: 1.02rem; line-height: 1.8;
+    color: var(--ink-light); max-width: 620px;
+    font-weight: 300;
+  }
+
+  /* ── CREDENTIALS BAR ── */
+  .credentials {
+    background: var(--ink);
+    padding: 72px 0;
+  }
+  .credentials .container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  .credential-item {
+    text-align: center;
+    padding: 0 1.2rem;
+  }
+  .credential-item:not(:last-child) {
+    border-right: 1px solid rgba(255,255,255,0.12);
+  }
+  .credential-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.2rem; font-weight: 700;
+    color: var(--white);
+    letter-spacing: -0.02em;
+  }
+  .credential-label {
+    font-size: 0.88rem; font-weight: 400;
+    color: rgba(255,255,255,0.7);
+    margin-top: 0.6rem;
+    letter-spacing: 0.02em;
+    line-height: 1.55;
+  }
+
+  /* ── DOMAINS GRID ── */
+  .domains-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin-top: 3rem;
+    border: 1px solid var(--rule);
+  }
+  .domain-card {
+    padding: 2.5rem;
+    border-bottom: 1px solid var(--rule);
+    transition: background 0.3s;
+  }
+  .domain-card:nth-child(odd) { border-right: 1px solid var(--rule); }
+  .domain-card:nth-last-child(-n+2) { border-bottom: none; }
+  .domain-card:hover { background: var(--white); }
+  .domain-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem; color: var(--accent);
+    margin-bottom: 1rem; font-weight: 500;
+  }
+  .domain-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.45rem; font-weight: 600;
+    color: var(--ink); margin-bottom: 0.8rem;
+    line-height: 1.3;
+  }
+  .domain-desc {
+    font-size: 0.92rem; line-height: 1.7;
+    color: var(--ink-muted); font-weight: 300;
+  }
+
+  /* ── CAREER TIMELINE ── */
+  .timeline { margin-top: 3rem; }
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 2.5rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--rule-light);
+    align-items: baseline;
+  }
+  .timeline-item:last-child { border-bottom: none; }
+  .timeline-period {
+    font-size: 0.85rem; color: var(--ink-muted);
+    font-weight: 400; padding-top: 0.15rem;
+  }
+  .timeline-role {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; font-weight: 600;
+    color: var(--ink); margin-bottom: 0.3rem;
+    line-height: 1.35;
+  }
+  .timeline-org {
+    font-size: 0.92rem; color: var(--ink-light);
+    font-weight: 400;
+  }
+
+  /* ── ENGAGEMENTS ── */
+  .engagements-list { margin-top: 2.5rem; }
+  .engagement-item {
+    padding: 1.8rem 0;
+    border-bottom: 1px solid var(--rule-light);
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 2.5rem;
+    align-items: baseline;
+  }
+  .engagement-item:last-child { border-bottom: none; }
+  .engagement-client {
+    font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--accent);
+  }
+  .engagement-desc {
+    font-size: 0.95rem; line-height: 1.75;
+    color: var(--ink-light); font-weight: 300;
+  }
+
+  /* ── EDUCATION ── */
+  .education-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2.5rem;
+  }
+  .edu-item {
+    padding: 2rem;
+    background: var(--white);
+    border: 1px solid var(--rule);
+  }
+  .edu-degree {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; font-weight: 600;
+    color: var(--ink); margin-bottom: 0.35rem;
+    line-height: 1.3;
+  }
+  .edu-institution {
+    font-size: 0.88rem; color: var(--accent);
+    font-weight: 500; margin-bottom: 0.25rem;
+  }
+  .edu-detail {
+    font-size: 0.82rem; color: var(--ink-muted);
+    font-weight: 400;
+  }
+
+  /* ── PUBLICATIONS ── */
+  .pub-item {
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--rule-light);
+  }
+  .pub-item:last-child { border-bottom: none; }
+  .pub-journal {
+    font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 0.6rem;
+  }
+  .pub-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; font-weight: 600;
+    color: var(--ink); line-height: 1.4;
+    margin-bottom: 0.5rem;
+    max-width: 700px;
+  }
+  .pub-authors {
+    font-size: 0.9rem; color: var(--ink-light);
+    font-weight: 400; margin-bottom: 0.25rem;
+  }
+  .pub-doi {
+    font-size: 0.82rem; color: var(--ink-muted);
+    font-weight: 400; font-style: italic;
+  }
+
+  /* ── CONVENTIONS ── */
+  .conventions-bar {
+    background: var(--surface-warm);
+    padding: 60px 0;
+  }
+  .conventions-label {
+    font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 2.5rem;
+    text-align: center;
+  }
+  .conventions-grid {
+    display: flex; justify-content: center;
+    flex-wrap: wrap; gap: 1.5rem 2.5rem;
+  }
+  .convention-tag {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; font-weight: 500;
+    color: var(--ink-light);
+    padding: 0.5rem 0;
+  }
+  .convention-sep {
+    color: var(--rule);
+    font-weight: 300;
+  }
+
+  /* ── CONTACT ── */
+  .contact-section {
+    background: var(--ink);
+    padding: 80px 0;
+  }
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .contact-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem; font-weight: 600;
+    color: var(--white); line-height: 1.3;
+    margin-bottom: 1rem;
+  }
+  .contact-text {
+    font-size: 0.95rem; line-height: 1.8;
+    color: rgba(255,255,255,0.5); font-weight: 300;
+  }
+  .contact-details { padding-top: 0.5rem; }
+  .contact-line {
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .contact-line:last-child { border-bottom: none; }
+  .contact-line-label {
+    font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 0.3rem;
+  }
+  .contact-line-value {
+    font-size: 1rem; color: var(--white);
+    font-weight: 400;
+  }
+  .contact-line-value a {
+    color: var(--white); text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    transition: border-color 0.2s;
+  }
+  .contact-line-value a:hover { border-color: rgba(255,255,255,0.6); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 1.5rem 0;
+    text-align: center;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-links.open {
+      display: flex; flex-direction: column;
+      position: absolute; top: 64px; left: 0; right: 0;
+      background: rgba(250,249,247,0.98);
+      padding: 1.5rem 2rem; gap: 1.2rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .nav-toggle { display: block; }
+
+    .hero { padding: 120px 0 60px; }
+    .hero h1 { font-size: 2.2rem; }
+    .hero-meta { gap: 2rem; }
+    .credentials .container { grid-template-columns: 1fr 1fr; gap: 2rem 1rem; }
+    .credential-item:not(:last-child) { border-right: none; }
+    .credential-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.1); }
+    .domains-grid { grid-template-columns: 1fr; }
+    .domain-card:nth-child(odd) { border-right: none; }
+    .domain-card { border-bottom: 1px solid var(--rule) !important; }
+    .domain-card:last-child { border-bottom: none !important; }
+    .timeline-item { grid-template-columns: 1fr; gap: 0.3rem; }
+    .engagement-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .education-grid { grid-template-columns: 1fr; }
+    .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .section-heading { font-size: 1.7rem; }
+  }
+
+  /* ── FADE IN ── */
+  .fade-in {
+    opacity: 0; transform: translateY(18px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-name">Dr. V. Rajagopalan, IAS</a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#career">Career</a></li>
+      <li><a href="#engagements">Engagements</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container">
+    <div class="fade-in">
+      <p class="hero-eyebrow">Senior Advisory &middot; Environment &middot; Climate &middot; Policy</p>
+      <h1>Dr. Venkatraman Rajagopalan, <span style="font-weight:500;">IAS</span></h1>
+      <p class="hero-intro">
+        Former Secretary to the Government of India and Chairman of the Central Pollution Control Board, with over three decades of leadership in environmental policy, climate negotiations, and institutional reform. Available for strategic advisory and consulting engagements with governments, multilateral institutions, and the private sector.
+      </p>
+    </div>
+    <div class="hero-meta fade-in">
+      <div class="hero-meta-item">
+        Service
+        <span>IAS, 1978–2014</span>
+      </div>
+      <div class="hero-meta-item">
+        Highest Office
+        <span>Secretary to Govt. of India</span>
+      </div>
+      <div class="hero-meta-item">
+        Languages
+        <span>English, Hindi, Tamil</span>
+      </div>
+      <div class="hero-meta-item">
+        Base
+        <span>Chennai, India</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- CREDENTIALS -->
+<div class="credentials">
+  <div class="container">
+    <div class="credential-item fade-in">
+      <div class="credential-number">36+</div>
+      <div class="credential-label">Years in environment governance and policy</div>
+    </div>
+    <div class="credential-item fade-in">
+      <div class="credential-number">6</div>
+      <div class="credential-label">International conventions as focal point or lead negotiator</div>
+    </div>
+    <div class="credential-item fade-in">
+      <div class="credential-number">21</div>
+      <div class="credential-label">EIA guidance manuals formulated across sectors</div>
+    </div>
+    <div class="credential-item fade-in">
+      <div class="credential-number">6</div>
+      <div class="credential-label">Metro cities covered in source apportionment studies</div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERTISE -->
+<section id="expertise">
+  <div class="container">
+    <p class="section-label fade-in">Domains of Practice</p>
+    <h2 class="section-heading fade-in">Deep, practitioner-level expertise across the full spectrum of environmental governance</h2>
+    <p class="section-text fade-in">
+      Decades of hands-on leadership — not as an observer but as the decision-maker — across environmental impact assessment, pollution control, climate negotiations, biodiversity finance, and institutional design.
+    </p>
+    <div class="domains-grid">
+      <div class="domain-card fade-in">
+        <div class="domain-number">01</div>
+        <div class="domain-title">Climate Change & UNFCCC Negotiations</div>
+        <div class="domain-desc">India's Team Leader in UNFCCC climate negotiations. Led bilateral discussions and initiatives outside the UNFCCC framework including the Climate and Clean Air Initiative. Commissioned studies for post-2020 commitments across growth trajectories.</div>
+      </div>
+      <div class="domain-card fade-in">
+        <div class="domain-number">02</div>
+        <div class="domain-title">Environmental Impact Assessment</div>
+        <div class="domain-desc">Chaired the Committee of Technical Experts that prepared EIA Guidance Manuals for 21 project categories across energy, industry, and infrastructure — the foundational reference framework for environmental clearances in India.</div>
+      </div>
+      <div class="domain-card fade-in">
+        <div class="domain-number">03</div>
+        <div class="domain-title">Biodiversity Finance & Resource Mobilization</div>
+        <div class="domain-desc">Architect of India's Biodiversity Finance Plan. Currently chairs expert committees operationalizing KM-GBF Targets 15 and 19. Proposed innovative instruments including Biodiversity Credits and Tiger Ecosystem Bonds.</div>
+      </div>
+      <div class="domain-card fade-in">
+        <div class="domain-number">04</div>
+        <div class="domain-title">Pollution Control & Standards</div>
+        <div class="domain-desc">As Chairman, CPCB, formulated industry-specific emission and effluent standards. Directed source apportionment studies across six metropolitan cities, informing city-specific action plans for particulate matter reduction.</div>
+      </div>
+      <div class="domain-card fade-in">
+        <div class="domain-number">05</div>
+        <div class="domain-title">Coastal Zone & Basin Management</div>
+        <div class="domain-desc">Chaired the General Council for the World Bank–assisted Integrated Coastal Zone Management project. Led the paradigm shift in Ganga Basin management from city-centric waste treatment to comprehensive basin-level ecological restoration.</div>
+      </div>
+      <div class="domain-card fade-in">
+        <div class="domain-number">06</div>
+        <div class="domain-title">Chemicals, Waste & Hazardous Materials</div>
+        <div class="domain-desc">Pivotal role in formulating rules on municipal solid waste, lead acid batteries, fly ash, plastic waste, bio-medical waste, and hazardous chemicals. National focal point for the Basel, Rotterdam, and Stockholm Conventions.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREER -->
+<section id="career">
+  <div class="container">
+    <p class="section-label fade-in">Government Service</p>
+    <h2 class="section-heading fade-in">Key positions held</h2>
+    <div class="timeline">
+      <div class="timeline-item fade-in">
+        <div class="timeline-period">2012 – 2014</div>
+        <div>
+          <div class="timeline-role">Secretary to the Government of India</div>
+          <div class="timeline-org">Ministry of Environment, Forests and Climate Change</div>
+        </div>
+      </div>
+      <div class="timeline-item fade-in">
+        <div class="timeline-period">2003 – 2006</div>
+        <div>
+          <div class="timeline-role">Chairman</div>
+          <div class="timeline-org">Central Pollution Control Board, Government of India</div>
+        </div>
+      </div>
+      <div class="timeline-item fade-in">
+        <div class="timeline-period">1998 – 2003</div>
+        <div>
+          <div class="timeline-role">Joint Secretary</div>
+          <div class="timeline-org">Ministry of Environment and Forests, Government of India</div>
+        </div>
+      </div>
+      <div class="timeline-item fade-in">
+        <div class="timeline-period">1994 – 1995</div>
+        <div>
+          <div class="timeline-role">Director, Environment</div>
+          <div class="timeline-org">Government of Uttar Pradesh</div>
+        </div>
+      </div>
+      <div class="timeline-item fade-in">
+        <div class="timeline-period">1978 – 2014</div>
+        <div>
+          <div class="timeline-role">Indian Administrative Service (IAS)</div>
+          <div class="timeline-org">Full career span — superannuated August 2014</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENGAGEMENTS -->
+<section id="engagements">
+  <div class="container">
+    <p class="section-label fade-in">Select Post-Retirement Engagements</p>
+    <h2 class="section-heading fade-in">Continuing to deliver at the intersection of policy and practice</h2>
+    <div class="engagements-list">
+      <div class="engagement-item fade-in">
+        <div class="engagement-client">UNDP</div>
+        <div class="engagement-desc">GCF-funded proposal on enhancing climate resilience of India's coastal communities (approved). India's Biodiversity Finance Plan. Tiger Ecosystem Bond framework. National Action Plan on Mercury. Strategy for a National Green Business Platform.</div>
+      </div>
+      <div class="engagement-item fade-in">
+        <div class="engagement-client">World Bank</div>
+        <div class="engagement-desc">Assessment of afforestation and reforestation potential across Indian states in the context of India's INDC on carbon sequestration — covering financing, convergence, ecological fiscal transfer, agroforestry, and institutional design.</div>
+      </div>
+      <div class="engagement-item fade-in">
+        <div class="engagement-client">MoEF&CC</div>
+        <div class="engagement-desc">Chaired committees on environment, ecology, and hazardous waste management. Chaired the National Coordination Committee for a comprehensive national action plan on chemical management.</div>
+      </div>
+      <div class="engagement-item fade-in">
+        <div class="engagement-client">NBA</div>
+        <div class="engagement-desc">Chaired the Working Group preparing India's National Biodiversity Strategy and Action Plan (NBSAP) aligned with the Kunming-Montreal Global Biodiversity Framework. Currently chairs expert committees on KM-GBF Targets 15 and 19.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONVENTIONS -->
+<div class="conventions-bar">
+  <div class="container">
+    <p class="conventions-label fade-in">International Conventions & Frameworks</p>
+    <div class="conventions-grid fade-in">
+      <span class="convention-tag">UNFCCC</span>
+      <span class="convention-sep">·</span>
+      <span class="convention-tag">Basel Convention</span>
+      <span class="convention-sep">·</span>
+      <span class="convention-tag">Rotterdam Convention</span>
+      <span class="convention-sep">·</span>
+      <span class="convention-tag">Stockholm Convention (Lead Negotiator)</span>
+      <span class="convention-sep">·</span>
+      <span class="convention-tag">CBD</span>
+      <span class="convention-sep">·</span>
+      <span class="convention-tag">Minamata Convention</span>
+      <span class="convention-sep">·</span>
+      <span class="convention-tag">KM-GBF</span>
+    </div>
+  </div>
+</div>
+
+<!-- PUBLICATIONS -->
+<section id="publications" style="background: var(--white);">
+  <div class="container">
+    <p class="section-label fade-in">Peer-Reviewed Publications</p>
+    <h2 class="section-heading fade-in">Technical contributions backed by published, peer-reviewed research</h2>
+    <div class="publications-list" style="margin-top: 2.5rem;">
+
+      <div class="pub-item fade-in">
+        <div class="pub-journal">Air Quality, Atmosphere and Health</div>
+        <div class="pub-title">Source Apportionment Studies in Six Indian Cities — Drawing Broad Inferences for Urban PM10 Reductions</div>
+        <div class="pub-authors">Prashant Gargava &amp; V. Rajagopalan, 2015</div>
+        <div class="pub-doi">DOI: 10.1007/s11869-015-0353-4</div>
+      </div>
+
+      <div class="pub-item fade-in">
+        <div class="pub-journal">Environmental Development</div>
+        <div class="pub-title">Source Prioritisation for Urban Particulate Emission Control in India Based on an Inventory of PM10 and its Carbonaceous Fraction in Six Cities</div>
+        <div class="pub-authors">Prashant Gargava &amp; V. Rajagopalan, 2015</div>
+        <div class="pub-doi">DOI: 10.1016/j.envdev.2015.07.009</div>
+      </div>
+
+      <div class="pub-item fade-in">
+        <div class="pub-journal">UNCTAD Workshop, Bangkok</div>
+        <div class="pub-title">Recent Indian Policy Initiatives in Lead Battery Scrap Management and Their Impact on the Domestic Demand–Supply Gap of Lead</div>
+        <div class="pub-authors">V. Rajagopalan, 2001</div>
+        <div class="pub-doi">Presented at the UNCTAD workshop on Sustainable Management of Recoverable Material</div>
+      </div>
+
+      <div class="pub-item fade-in">
+        <div class="pub-journal">International Journal of Development Banking</div>
+        <div class="pub-title">Development Banking: Operational Issues at the Field Level</div>
+        <div class="pub-authors">V. Rajagopalan &amp; Vinod Vyasulu, 1990</div>
+        <div class="pub-doi">Vol. 8, No. 1, pp. 35–41</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <p class="section-label fade-in">Academic Credentials</p>
+    <h2 class="section-heading fade-in">A rare combination of technical depth and management training</h2>
+    <div class="education-grid">
+      <div class="edu-item fade-in">
+        <div class="edu-degree">Ph.D. — Air Pollution Modeling</div>
+        <div class="edu-institution">University of Lucknow</div>
+        <div class="edu-detail">Thesis on air environment management and comparative assessment of dispersion models</div>
+      </div>
+      <div class="edu-item fade-in">
+        <div class="edu-degree">M.Sc. — Environmental Technology</div>
+        <div class="edu-institution">Imperial College, University of London</div>
+        <div class="edu-detail">Faculty of Engineering, 1993</div>
+      </div>
+      <div class="edu-item fade-in">
+        <div class="edu-degree">PGDM — Business Management</div>
+        <div class="edu-institution">Indian Institute of Management, Bangalore</div>
+        <div class="edu-detail">1988</div>
+      </div>
+      <div class="edu-item fade-in">
+        <div class="edu-degree">M.Tech — Engineering Mechanics</div>
+        <div class="edu-institution">Indian Institute of Technology, Madras</div>
+        <div class="edu-detail">First Class, 1978</div>
+      </div>
+      <div class="edu-item fade-in">
+        <div class="edu-degree">B.Tech — Civil Engineering</div>
+        <div class="edu-institution">Indian Institute of Technology, Madras</div>
+        <div class="edu-detail">First Class, 1976</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="fade-in">
+        <h2 class="contact-heading">Available for strategic advisory engagements</h2>
+        <p class="contact-text">
+          Open to consulting assignments with governments, multilateral institutions, development finance organizations, and private sector entities operating in the environmental, climate, and sustainability domains.
+        </p>
+      </div>
+      <div class="contact-details fade-in">
+        <div class="contact-line">
+          <div class="contact-line-label">Email</div>
+          <div class="contact-line-value"><a href="mailto:vrgiyer@gmail.com">vrgiyer@gmail.com</a></div>
+        </div>
+        <div class="contact-line">
+          <div class="contact-line-label">Phone</div>
+          <div class="contact-line-value"><a href="tel:+919717776408">+91 97177 76408</a></div>
+        </div>
+        <div class="contact-line">
+          <div class="contact-line-label">Location</div>
+          <div class="contact-line-value">Chennai, India</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">&copy; 2026 Dr. Venkatraman Rajagopalan. All rights reserved.</div>
+</footer>
+
+<script>
+// Scroll-based nav shadow
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// Fade-in on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
